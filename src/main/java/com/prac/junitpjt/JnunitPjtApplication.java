@@ -1,4 +1,4 @@
-package com.prac.jnunitpjt;
+package com.prac.junitpjt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
