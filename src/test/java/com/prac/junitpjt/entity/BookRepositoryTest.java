@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 @DataJpaTest
 public class BookRepositoryTest {
     @Autowired
@@ -12,10 +15,20 @@ public class BookRepositoryTest {
 
     @Test
     public void 책등록_test() {
-        System.out.println("책등록_test 실행");
-    }
+        // given (테스트 준비)
+        String title = "junit5";
+        String author = "eastMeet";
+        Book book = Book.builder()
+                .title(title)
+                .author(author)
+                .build();
 
-    // 1. 책 등록
+        // when (테스트 실행)
+        Book bookPS = bookRepository.save(book);
+        // then (검증)
+        assertEquals(title, bookPS.getTitle());
+        assertEquals(author, bookPS.getAuthor());
+    }
 
     // 2. 책 목록보기
 

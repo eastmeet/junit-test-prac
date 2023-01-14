@@ -17,6 +17,4 @@ public class Book {
     private String title;
     @Column(length = 20, nullable = false)
     private String author;
-
-
 }
